@@ -14,7 +14,7 @@ function App() {
   const [evaluationResult, setEvaluationResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const BACKEND_URL = 'https://glowing-garbanzo-qw79jwr96x72977w-8000.app.github.dev/';
+  const BACKEND_URL = 'https://glowing-garbanzo-qw79jwr96x72977w-8000.app.github.dev';
 
   const handleUpload = async () => {
     if (!cvFile || !projectFile) {
