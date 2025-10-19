@@ -1,0 +1,188 @@
+/* src/App.css */
+
+/* --- CSS Variables for Easy Theming --- */
+:root {
+  --background-color: #1a1a1a;
+  --card-background: #242424;
+  --primary-text: #ffffff;
+  --secondary-text: #a0a0a0;
+  --accent-color: #646cff;
+  --accent-hover: #535bf2;
+  --border-color: #444;
+  --success-color: #4caf50;
+  --error-color: #f44336;
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Basic Reset & Body Style --- */
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--primary-text);
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+}
+
+#root {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* --- Main App Container --- */
+.App {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* --- Card Styling --- */
+.card {
+  background-color: var(--card-background);
+  padding: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+}
+
+.card h2 {
+  margin-top: 0;
+  color: var(--primary-text);
+  border-bottom: 2px solid var(--accent-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+/* --- Button Styling --- */
+button {
+  background-color: var(--accent-color);
+  color: white;
+  border: none;
+  padding: 0.8em 1.5em;
+  border-radius: 8px;
+  font-size: 1em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.25s, transform 0.25s;
+}
+
+button:hover {
+  background-color: var(--accent-hover);
+  transform: scale(1.05);
+}
+
+button:disabled {
+  background-color: #4a4a4a;
+  cursor: not-allowed;
+  transform: scale(1);
+}
+
+/* --- Input Styling --- */
+.input-group {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+label {
+  font-weight: 500;
+  color: var(--secondary-text);
+}
+
+input[type="file"] {
+  font-family: var(--font-family);
+  color: var(--secondary-text);
+}
+
+/* --- Status & Result Styling --- */
+.status-display {
+  font-weight: bold;
+  padding: 0.5em;
+  border-radius: 5px;
+  margin-top: 1rem;
+  display: inline-block;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.status-display.completed { background-color: var(--success-color); }
+.status-display.error { background-color: var(--error-color); }
+.status-display.evaluating { background-color: var(--accent-color); }
+
+/* This is the fix for the cut-off text */
+.result-box {
+  background-color: var(--background-color);
+  color: #f0f0f0;
+  padding: 1.5em;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  text-align: left;
+  white-space: pre-wrap;  /* Memastikan teks terbungkus */
+  word-wrap: break-word; /* Mematahkan kata yang panjang */
+  overflow-x: auto;
+  animation: slideInUp 0.6s ease-out;
+}
+
+/* --- Keyframe Animations --- */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* src/App.css (Tambahkan di bagian bawah) */
+
+.result-display {
+  margin-top: 1.5rem;
+  text-align: left;
+  animation: slideInUp 0.6s ease-out;
+}
+
+.result-section {
+  margin-bottom: 2rem;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 1.5rem;
+}
+
+.result-section h4 {
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  color: var(--primary-text);
+}
+
+.result-section .score {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: var(--success-color);
+  margin: 0 0 0.75rem 0;
+}
+
+.result-section .feedback {
+  margin: 0;
+  line-height: 1.6;
+  color: var(--secondary-text);
+}
