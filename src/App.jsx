@@ -14,7 +14,7 @@ function App() {
   const [evaluationResult, setEvaluationResult] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const BACKEND_URL = 'https://cautious-journey-7v7jwrqwqpwcpgg7-8000.app.github.dev';
+  const BACKEND_URL = 'https://ranggaaarya.pythonanywhere.com';
 
   const handleUpload = async () => {
     if (!cvFile || !projectFile) {
